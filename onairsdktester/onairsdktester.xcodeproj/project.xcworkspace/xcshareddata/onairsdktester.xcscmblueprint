@@ -1,0 +1,25 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "cd41816d-1e45-0447-8542-d9cf3eaa7e57++9368",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+    "cd41816d-1e45-0447-8542-d9cf3eaa7e57++9368" : {
+
+    }
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "cd41816d-1e45-0447-8542-d9cf3eaa7e57++9368" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "9C41B47C-DEC9-4171-9CDE-8CF045896FB6",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "cd41816d-1e45-0447-8542-d9cf3eaa7e57++9368" : "1.10-release\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "onairsdktester",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "src\/iPhone\/onairsdktester\/onairsdktester.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/svn.zixi.com:404\/svn\/two",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "cd41816d-1e45-0447-8542-d9cf3eaa7e57++9368"
+    }
+  ]
+}

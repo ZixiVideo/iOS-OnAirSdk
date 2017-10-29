@@ -1,0 +1,376 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		400D8D441DEC70AB00E25C65 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 400D8D431DEC70AB00E25C65 /* main.m */; };
+		400D8D471DEC70AB00E25C65 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 400D8D461DEC70AB00E25C65 /* AppDelegate.m */; };
+		400D8D4A1DEC70AB00E25C65 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 400D8D491DEC70AB00E25C65 /* ViewController.m */; };
+		400D8D4D1DEC70AB00E25C65 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 400D8D4B1DEC70AB00E25C65 /* Main.storyboard */; };
+		400D8D4F1DEC70AB00E25C65 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 400D8D4E1DEC70AB00E25C65 /* Assets.xcassets */; };
+		400D8D521DEC70AB00E25C65 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 400D8D501DEC70AB00E25C65 /* LaunchScreen.storyboard */; };
+		400D8D5B1DEC713500E25C65 /* ZixiOnAirSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 400D8D5A1DEC713500E25C65 /* ZixiOnAirSDK.framework */; };
+		400D8D601DEC717900E25C65 /* ZixiOnAirSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 400D8D5F1DEC717900E25C65 /* ZixiOnAirSDK.framework */; };
+		40ECF4271DEC71ED00BA4322 /* ZixiOnAirSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 400D8D5F1DEC717900E25C65 /* ZixiOnAirSDK.framework */; };
+		40ECF4281DEC71ED00BA4322 /* ZixiOnAirSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 400D8D5F1DEC717900E25C65 /* ZixiOnAirSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		400D8D5E1DEC714400E25C65 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				40ECF4281DEC71ED00BA4322 /* ZixiOnAirSDK.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		400D8D3F1DEC70AB00E25C65 /* onairsdktester.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = onairsdktester.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		400D8D431DEC70AB00E25C65 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		400D8D451DEC70AB00E25C65 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		400D8D461DEC70AB00E25C65 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		400D8D481DEC70AB00E25C65 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		400D8D491DEC70AB00E25C65 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		400D8D4C1DEC70AB00E25C65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		400D8D4E1DEC70AB00E25C65 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		400D8D511DEC70AB00E25C65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		400D8D531DEC70AB00E25C65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		400D8D5A1DEC713500E25C65 /* ZixiOnAirSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ZixiOnAirSDK.framework; path = "/Users/zixi/Desktop/ZixiOnAirSDK 2016-11-28 16-01-00/Products/Library/Frameworks/ZixiOnAirSDK.framework"; sourceTree = "<absolute>"; };
+		400D8D5F1DEC717900E25C65 /* ZixiOnAirSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ZixiOnAirSDK.framework; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		400D8D3C1DEC70AB00E25C65 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				400D8D5B1DEC713500E25C65 /* ZixiOnAirSDK.framework in Frameworks */,
+				400D8D601DEC717900E25C65 /* ZixiOnAirSDK.framework in Frameworks */,
+				40ECF4271DEC71ED00BA4322 /* ZixiOnAirSDK.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		400D8D361DEC70AB00E25C65 = {
+			isa = PBXGroup;
+			children = (
+				400D8D411DEC70AB00E25C65 /* onairsdktester */,
+				400D8D401DEC70AB00E25C65 /* Products */,
+				400D8D591DEC713500E25C65 /* Frameworks */,
+				406A3B4F1F839710005649A7 /* Recovered References */,
+			);
+			sourceTree = "<group>";
+		};
+		400D8D401DEC70AB00E25C65 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				400D8D3F1DEC70AB00E25C65 /* onairsdktester.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		400D8D411DEC70AB00E25C65 /* onairsdktester */ = {
+			isa = PBXGroup;
+			children = (
+				400D8D451DEC70AB00E25C65 /* AppDelegate.h */,
+				400D8D461DEC70AB00E25C65 /* AppDelegate.m */,
+				400D8D481DEC70AB00E25C65 /* ViewController.h */,
+				400D8D491DEC70AB00E25C65 /* ViewController.m */,
+				400D8D4B1DEC70AB00E25C65 /* Main.storyboard */,
+				400D8D4E1DEC70AB00E25C65 /* Assets.xcassets */,
+				400D8D501DEC70AB00E25C65 /* LaunchScreen.storyboard */,
+				400D8D531DEC70AB00E25C65 /* Info.plist */,
+				400D8D421DEC70AB00E25C65 /* Supporting Files */,
+			);
+			path = onairsdktester;
+			sourceTree = "<group>";
+		};
+		400D8D421DEC70AB00E25C65 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				400D8D431DEC70AB00E25C65 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		400D8D591DEC713500E25C65 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				400D8D5F1DEC717900E25C65 /* ZixiOnAirSDK.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		406A3B4F1F839710005649A7 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				400D8D5A1DEC713500E25C65 /* ZixiOnAirSDK.framework */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		400D8D3E1DEC70AB00E25C65 /* onairsdktester */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 400D8D561DEC70AB00E25C65 /* Build configuration list for PBXNativeTarget "onairsdktester" */;
+			buildPhases = (
+				400D8D3B1DEC70AB00E25C65 /* Sources */,
+				400D8D3C1DEC70AB00E25C65 /* Frameworks */,
+				400D8D3D1DEC70AB00E25C65 /* Resources */,
+				400D8D5E1DEC714400E25C65 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = onairsdktester;
+			productName = onairsdktester;
+			productReference = 400D8D3F1DEC70AB00E25C65 /* onairsdktester.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		400D8D371DEC70AB00E25C65 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0810;
+				ORGANIZATIONNAME = zixi;
+				TargetAttributes = {
+					400D8D3E1DEC70AB00E25C65 = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 257T37XFQW;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 400D8D3A1DEC70AB00E25C65 /* Build configuration list for PBXProject "onairsdktester" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 400D8D361DEC70AB00E25C65;
+			productRefGroup = 400D8D401DEC70AB00E25C65 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				400D8D3E1DEC70AB00E25C65 /* onairsdktester */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		400D8D3D1DEC70AB00E25C65 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				400D8D521DEC70AB00E25C65 /* LaunchScreen.storyboard in Resources */,
+				400D8D4F1DEC70AB00E25C65 /* Assets.xcassets in Resources */,
+				400D8D4D1DEC70AB00E25C65 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		400D8D3B1DEC70AB00E25C65 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				400D8D4A1DEC70AB00E25C65 /* ViewController.m in Sources */,
+				400D8D471DEC70AB00E25C65 /* AppDelegate.m in Sources */,
+				400D8D441DEC70AB00E25C65 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		400D8D4B1DEC70AB00E25C65 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				400D8D4C1DEC70AB00E25C65 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		400D8D501DEC70AB00E25C65 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				400D8D511DEC70AB00E25C65 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		400D8D541DEC70AB00E25C65 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		400D8D551DEC70AB00E25C65 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		400D8D571DEC70AB00E25C65 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 257T37XFQW;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = onairsdktester/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.zixi.onairsdktester;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+			};
+			name = Debug;
+		};
+		400D8D581DEC70AB00E25C65 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 257T37XFQW;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = onairsdktester/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.zixi.onairsdktester;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		400D8D3A1DEC70AB00E25C65 /* Build configuration list for PBXProject "onairsdktester" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				400D8D541DEC70AB00E25C65 /* Debug */,
+				400D8D551DEC70AB00E25C65 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		400D8D561DEC70AB00E25C65 /* Build configuration list for PBXNativeTarget "onairsdktester" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				400D8D571DEC70AB00E25C65 /* Debug */,
+				400D8D581DEC70AB00E25C65 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 400D8D371DEC70AB00E25C65 /* Project object */;
+}
