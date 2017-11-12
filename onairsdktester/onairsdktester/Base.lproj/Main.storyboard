@@ -51,8 +51,8 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8zI-lm-WBz">
-                                <rect key="frame" x="0.0" y="6" width="588" height="246"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <rect key="frame" x="0.0" y="0.0" width="568" height="252"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fjc-Dk-j1Y">
                                 <rect key="frame" x="104" y="270" width="97" height="30"/>
@@ -67,19 +67,28 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XLB-8a-hAj">
+                                <rect key="frame" x="421" y="270" width="77" height="30"/>
+                                <state key="normal" title="Orientation"/>
+                                <connections>
+                                    <action selector="onOrientation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="E2n-m8-9dc"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="8zI-lm-WBz" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="EgJ-nP-LGd"/>
                             <constraint firstItem="Fjc-Dk-j1Y" firstAttribute="top" secondItem="8zI-lm-WBz" secondAttribute="bottom" constant="18" id="GT7-ir-SgG"/>
                             <constraint firstItem="riz-GV-jzC" firstAttribute="leading" secondItem="Y2o-2E-9JK" secondAttribute="trailing" constant="10" id="JrY-0e-djS"/>
                             <constraint firstItem="fh3-j1-vaT" firstAttribute="top" secondItem="8zI-lm-WBz" secondAttribute="bottom" constant="18" id="Mmx-lp-cde"/>
                             <constraint firstItem="5ke-gL-zp9" firstAttribute="leading" secondItem="riz-GV-jzC" secondAttribute="trailing" constant="10" id="PHj-vf-HKL"/>
-                            <constraint firstItem="8zI-lm-WBz" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="6" id="WUh-W5-Ems"/>
+                            <constraint firstItem="8zI-lm-WBz" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="WUh-W5-Ems"/>
                             <constraint firstItem="fh3-j1-vaT" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-8" id="YkK-hu-rnH"/>
                             <constraint firstItem="8zI-lm-WBz" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="Zke-qp-Tjo"/>
                             <constraint firstAttribute="trailing" secondItem="LQw-Fn-QH0" secondAttribute="trailing" id="aX1-AN-oVZ"/>
+                            <constraint firstItem="XLB-8a-hAj" firstAttribute="top" secondItem="8zI-lm-WBz" secondAttribute="bottom" constant="18" id="d5o-jb-zoc"/>
                             <constraint firstItem="5ke-gL-zp9" firstAttribute="top" secondItem="8zI-lm-WBz" secondAttribute="bottom" constant="18" id="gx1-bn-4Xp"/>
-                            <constraint firstItem="8zI-lm-WBz" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" constant="20" id="gxM-X8-xSj"/>
+                            <constraint firstItem="XLB-8a-hAj" firstAttribute="leading" secondItem="5ke-gL-zp9" secondAttribute="trailing" constant="11" id="lJo-0X-5z8"/>
                             <constraint firstItem="LQw-Fn-QH0" firstAttribute="top" secondItem="8zI-lm-WBz" secondAttribute="bottom" constant="47" id="mDU-tT-ACl"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="8zI-lm-WBz" secondAttribute="bottom" constant="68" id="ni7-DE-X11"/>
                             <constraint firstItem="Y2o-2E-9JK" firstAttribute="leading" secondItem="Fjc-Dk-j1Y" secondAttribute="trailing" constant="10" id="o1P-mW-tvh"/>
@@ -89,6 +98,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="orientationButton" destination="XLB-8a-hAj" id="fxB-PA-D7w"/>
                         <outlet property="previewView" destination="8zI-lm-WBz" id="vJy-mM-ACr"/>
                         <outlet property="sdkVersion" destination="LQw-Fn-QH0" id="vnt-go-pm4"/>
                     </connections>

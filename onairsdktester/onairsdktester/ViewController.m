@@ -12,13 +12,17 @@
 
 @interface ViewController () <ZixiOnAirStatusDelegate, ZixiOnAirRawFramesDelegate, ZixiOnAirEncodedFramesDelegate>
 @property (nonatomic, nonnull, strong) ZixiOnAir* onair;
+@property (nonatomic, nonnull, strong) appSettings* onAirSettings;
+
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
+	_onAirSettings = [[ appSettings alloc ] init];
+	
     _onair = [ZixiOnAir sharedInstance];
 	_sdkVersion.text = _onair.version;
     _onair.statusDelegate = self;
@@ -27,12 +31,6 @@
 
 	NSLog(@"Available Presets:");
 	for (ZixiCameraPreset* preset in _onair.presets)
-	{
-		NSLog(@"%lux%lu @ %lu kbps", (unsigned long)preset.width, (unsigned long)preset.height, (preset.highFrameRateBitrate/1000));
-	}
-
-	NSLog(@"Available 4:3 Presets:");
-	for (ZixiCameraPreset* preset in _onair.fourByThreePrestes)
 	{
 		NSLog(@"%lux%lu @ %lu kbps", (unsigned long)preset.width, (unsigned long)preset.height, (preset.highFrameRateBitrate/1000));
 	}
@@ -45,18 +43,43 @@
     
     if (p)
     {
-        p.previewGravity = ZixiCameraPreviewGravityResizeAspect;
+        p.previewGravity = ZixiCameraPreviewGravityResizeAspectFill;
         p.activaCamera.enableLowLightBoostWhenAvailable = YES;
     }
 }
 
+-(void) viewDidLayoutSubviews
+{
+	[super viewWillLayoutSubviews];
+
+	if (_onair && _onair.cameraPreview)
+	{
+		[_onair.cameraPreview updatePreviewLayerSize];
+	}
+}
+
 -(BOOL) shouldAutorotate{
-    return NO;
-    
+	return YES;
+	
+}
+
+- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation
+{
+	if (_onAirSettings && _onAirSettings.advanced.verticalOrientation)
+		return UIInterfaceOrientationPortrait;
+	else
+		return UIInterfaceOrientationLandscapeRight;
 }
 
 -(UIInterfaceOrientationMask) supportedInterfaceOrientations
 {
+	if (_onAirSettings)
+	{
+		if (_onAirSettings.advanced.verticalOrientation == YES)
+			return UIInterfaceOrientationMaskPortrait;
+		else
+			return UIInterfaceOrientationMaskLandscapeRight;
+	}
     return UIInterfaceOrientationMaskLandscapeRight;
 }
 
@@ -96,29 +119,35 @@
 }
 
 - (IBAction)startStreaming:(id)sender {
-    
-    appSettings* s = [[appSettings alloc] init];
-    
-    s.protocol.protocol     = PROTOCOL_ZIXI;
-    s.server.hostName       = @"10.0.0.100";
-    s.server.channelName    = @"ios";
-    s.server.bonding        = NO;
-    s.server.latency        = 500;  //ms
 	
-	s.advanced.audioCodec	= ZixiAudioCodecAAC;
-	s.advanced.audioBitRate	= 96;
+    _onAirSettings.protocol.protocol     = PROTOCOL_ZIXI;
+    _onAirSettings.server.hostName       = @"10.0.0.100";
+    _onAirSettings.server.channelName    = @"ios";
+    _onAirSettings.server.bonding        = NO;
+    _onAirSettings.server.latency        = 500;  //ms
 	
-//    s.protocol.protocol     = PROTOCOL_RTMP;
-//    s.rtmp.URL              = @"rtmp://10.0.0.100/live";
-//    s.rtmp.streamName       = @"rtmp_test";
+	_onAirSettings.advanced.audioCodec	= ZixiAudioCodecAAC;
+	_onAirSettings.advanced.audioBitRate	= 96000;
+	
+//    _onAirSettings.protocol.protocol     = PROTOCOL_RTMP;
+//    _onAirSettings.rtmp.URL              = @"rtmp://10.0.0.100/live";
+//    _onAirSettings.rtmp.streamName       = @"rtmp_test";
 //    
-	s.video.frameSizePreset	= 2;
-    s.video.frameRate       = 60;
-    s.video.adaptive        = NO;
-    
-    //    s.advanced.videoRateControl = RC_CBR;
-    s.advanced.videoBitRate = 3000;
-    [_onair startStreamingWithSettings:s];
+	_onAirSettings.video.frameSizePresetIndex	= 0;
+	_onAirSettings.video.aspectRatio	= ZixiVideoAspectRatio_16_9;
+	_onAirSettings.video.frameRate		= 60;
+    _onAirSettings.video.adaptive		= NO;
+	
+/*
+//	custom resolution
+	_onAirSettings.video.aspectRatio		= ZixiVideoAspectRatio_Custom;
+	_onAirSettings.video.videoWidth		= 400;
+	_onAirSettings.video.videoHeight		= 300;
+*/
+    //    _onAirSettings.advanced.videoRateControl = RC_CBR;
+    _onAirSettings.advanced.videoBitRate = 3000;
+    [_onair startStreamingWithSettings:_onAirSettings];
+	
 }
 
 - (IBAction)stopStreaming:(id)sender {
@@ -196,5 +225,62 @@
 -(void) onEncodedVideo:(nonnull CMSampleBufferRef) sampleBuffer
 {
     NSLog(@"onEncodedVideo");
+}
+- (IBAction)onOrientation:(id)sender
+{
+	if (_onair && _onair.connected)
+		return;
+	
+	void (^handler)(UIAlertAction*) = ^void(UIAlertAction* action)
+	{
+		
+		if ([action.title isEqualToString:@"Landscape"])
+		{
+			if (_onAirSettings)
+				_onAirSettings.advanced.verticalOrientation = NO;
+
+			if (_onair)
+				_onair.verticalOrientation = NO;
+		}
+		else if ([action.title isEqualToString:@"Portrait"])
+		{
+			if (_onAirSettings)
+				_onAirSettings.advanced.verticalOrientation = YES;
+
+			if (_onair)
+				_onair.verticalOrientation = YES;
+		}
+
+		// force orientation
+		UIInterfaceOrientation o = _onAirSettings.advanced.verticalOrientation ? UIInterfaceOrientationPortrait : UIInterfaceOrientationLandscapeRight;
+		[UIDevice.currentDevice setValue:@(o) forKey:@"orientation"];
+
+		[UIViewController attemptRotationToDeviceOrientation];
+	};
+	
+	UIAlertController* orientationAC = [UIAlertController alertControllerWithTitle:@"Orientation" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+
+	UIAlertAction* portraitAction = [UIAlertAction actionWithTitle:@"Portrait" style:UIAlertActionStyleDefault handler:handler];
+	[orientationAC addAction:portraitAction];
+
+	UIAlertAction* landscapeAction = [UIAlertAction actionWithTitle:@"Landscape" style:UIAlertActionStyleDefault handler:handler];
+	[orientationAC addAction:landscapeAction];
+
+	UIAlertAction* cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction* action){
+		
+	}];
+	[orientationAC addAction:cancel];
+	
+	if (orientationAC.popoverPresentationController)
+	{
+		orientationAC.popoverPresentationController.sourceView = _orientationButton;
+
+		CGRect r = _orientationButton.bounds;
+		r.origin.y -= 50;
+		orientationAC.popoverPresentationController.sourceRect = r;
+		orientationAC.popoverPresentationController.permittedArrowDirections = UIPopoverArrowDirectionDown;
+	}
+	
+	[self presentViewController:orientationAC animated:YES completion:nil];
 }
 @end
