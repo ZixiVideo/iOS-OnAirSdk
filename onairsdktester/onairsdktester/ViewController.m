@@ -136,7 +136,8 @@
 	_onAirSettings.video.frameSizePresetIndex	= 0;
 	_onAirSettings.video.aspectRatio	= ZixiVideoAspectRatio_16_9;
 	_onAirSettings.video.frameRate		= 60;
-    _onAirSettings.video.adaptive		= NO;
+	_onAirSettings.video.adaptiveBitrate= NO;
+	_onAirSettings.video.adaptiveFramerate = NO;
 	
 /*
 //	custom resolution
