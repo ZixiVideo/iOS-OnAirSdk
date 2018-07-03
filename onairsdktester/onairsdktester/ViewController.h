@@ -17,7 +17,6 @@
 - (IBAction)stopStreaming:(id)sender;
 - (IBAction)onOrientation:(id)sender;
 @property (weak, nonatomic) IBOutlet UIView *previewView;
-@property (weak, nonatomic) IBOutlet UILabel *sdkVersion;
 @property (weak, nonatomic) IBOutlet UIButton *orientationButton;
 
 @end
