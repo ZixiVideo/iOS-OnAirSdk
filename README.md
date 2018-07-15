@@ -24,3 +24,8 @@ Two more things :
 
 * If you are testing onairsdktester, you will have to perform steps 1-8 on the project settings
 
+
+iOS Simulator
+In order to use the Simulator version, add to your project a png image called "static.png".
+The OnAir SDK will load it and encode using a framerate of ~60FPS.
+The image will be rescaled to 600x600 px.
