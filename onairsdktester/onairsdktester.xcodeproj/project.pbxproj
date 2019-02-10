@@ -68,7 +68,7 @@
 				400D8D411DEC70AB00E25C65 /* onairsdktester */,
 				400D8D401DEC70AB00E25C65 /* Products */,
 				400D8D591DEC713500E25C65 /* Frameworks */,
-				406A3B4F1F839710005649A7 /* Recovered References */,
+				C37289E92210702300F0C1E8 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -112,7 +112,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		406A3B4F1F839710005649A7 /* Recovered References */ = {
+		C37289E92210702300F0C1E8 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
 				400D8D5A1DEC713500E25C65 /* ZixiOnAirSDK.framework */,
@@ -152,7 +152,7 @@
 				TargetAttributes = {
 					400D8D3E1DEC70AB00E25C65 = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = 65KG45B82Y;
+						DevelopmentTeam = 257T37XFQW;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -315,7 +315,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 65KG45B82Y;
+				DEVELOPMENT_TEAM = 257T37XFQW;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -331,7 +331,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 65KG45B82Y;
+				DEVELOPMENT_TEAM = 257T37XFQW;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",

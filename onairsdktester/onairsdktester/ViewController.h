@@ -18,6 +18,7 @@
 - (IBAction)onOrientation:(id)sender;
 @property (weak, nonatomic) IBOutlet UIView *previewView;
 @property (weak, nonatomic) IBOutlet UIButton *orientationButton;
+@property (weak, nonatomic) IBOutlet UILabel *sdkVersion;
 
 @end
 

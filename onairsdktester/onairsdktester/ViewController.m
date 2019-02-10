@@ -65,9 +65,29 @@
 
 - (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation
 {
-	if (_onAirSettings && _onAirSettings.advanced.verticalOrientation)
-		return UIInterfaceOrientationPortrait;
-	else
+	if (_onAirSettings)
+	{
+		switch (_onAirSettings.advanced.videoOrientation) {
+			case ZixiVideoOrientationPortrait:
+				return UIInterfaceOrientationPortrait;
+				break;
+				
+			case ZixiVideoOrientationPortraitUpsideDown:
+				return UIInterfaceOrientationPortraitUpsideDown;
+				break;
+				
+			case ZixiVideoOrientationLandscapeRight:
+				return UIInterfaceOrientationLandscapeRight;
+				break;
+				
+			case ZixiVideoOrientationLandscapeLeft:
+				return UIInterfaceOrientationLandscapeLeft;
+				break;
+				
+			default:
+				break;
+		}
+	}
 		return UIInterfaceOrientationLandscapeRight;
 }
 
@@ -75,10 +95,26 @@
 {
 	if (_onAirSettings)
 	{
-		if (_onAirSettings.advanced.verticalOrientation == YES)
-			return UIInterfaceOrientationMaskPortrait;
-		else
-			return UIInterfaceOrientationMaskLandscapeRight;
+		switch (_onAirSettings.advanced.videoOrientation) {
+			case ZixiVideoOrientationPortrait:
+				return UIInterfaceOrientationMaskPortrait;
+				break;
+
+			case ZixiVideoOrientationPortraitUpsideDown:
+				return UIInterfaceOrientationMaskPortraitUpsideDown;
+				break;
+
+			case ZixiVideoOrientationLandscapeRight:
+				return UIInterfaceOrientationMaskLandscapeRight;
+				break;
+
+			case ZixiVideoOrientationLandscapeLeft:
+				return UIInterfaceOrientationMaskLandscapeLeft;
+				break;
+
+			default:
+				break;
+		}
 	}
     return UIInterfaceOrientationMaskLandscapeRight;
 }
@@ -89,11 +125,69 @@
 }
 
 - (IBAction)switchCam:(id)sender {
+
+    NSMutableDictionary* tmp = [NSMutableDictionary dictionary];
     
-	if (_onair)
-	{
-		[_onair switchCamera];
-	}
+    void (^handler)(UIAlertAction*) = ^void(UIAlertAction* action)
+    {
+        if (tmp && tmp.count > 0)
+        {
+            ZixiCamera* cam = [tmp objectForKey:action.title];
+            if (_onair)
+                [_onair setActivaCamera:cam];
+        }
+    };
+    
+    UIAlertController* camSelection = [UIAlertController alertControllerWithTitle:@"Select Camera" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    NSArray<ZixiCamera*>* cams = [ZixiCameraPreview devicesCameras];
+    if (cams && cams.count)
+    {
+        for (ZixiCamera* c in cams)
+        {
+            if (c)
+            {
+                if ([c isFront])
+                {
+                    UIAlertAction* frontCamera = [UIAlertAction actionWithTitle:@"Front" style:UIAlertActionStyleDefault handler:handler];
+                    [camSelection addAction:frontCamera];
+                    [tmp setObject:c forKey:@"Front"];
+                }
+                else if ([c isBack])
+                {
+                    if ([c isTelephoto])
+                    {
+                        UIAlertAction* telePhotoCamera = [UIAlertAction actionWithTitle:@"Telephoto" style:UIAlertActionStyleDefault handler:handler];
+                        [camSelection addAction:telePhotoCamera];
+                        [tmp setObject:c forKey:@"Telephoto"];
+                    }
+                    else
+                    {
+                        UIAlertAction* backCamera = [UIAlertAction actionWithTitle:@"Back" style:UIAlertActionStyleDefault handler:handler];
+                        [camSelection addAction:backCamera];
+                        [tmp setObject:c forKey:@"Back"];
+                    }
+                }
+            }
+        }
+    }
+    
+    UIAlertAction* cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction* action){
+        
+    }];
+    [camSelection addAction:cancel];
+    
+    if (camSelection.popoverPresentationController)
+    {
+        camSelection.popoverPresentationController.sourceView = _orientationButton;
+        
+        CGRect r = _orientationButton.bounds;
+        r.origin.y -= 50;
+        camSelection.popoverPresentationController.sourceRect = r;
+        camSelection.popoverPresentationController.permittedArrowDirections = UIPopoverArrowDirectionDown;
+    }
+    
+    [self presentViewController:camSelection animated:YES completion:nil];
 }
 
 - (IBAction)registerFocusAndZoom:(id)sender {
@@ -235,25 +329,57 @@
 	void (^handler)(UIAlertAction*) = ^void(UIAlertAction* action)
 	{
 		
-		if ([action.title isEqualToString:@"Landscape"])
+		if ([action.title isEqualToString:@"Landscape Right"])
 		{
 			if (_onAirSettings)
-				_onAirSettings.advanced.verticalOrientation = NO;
+				_onAirSettings.advanced.videoOrientation = ZixiVideoOrientationLandscapeRight;
 
 			if (_onair)
-				_onair.verticalOrientation = NO;
+				_onair.videoOrientation = ZixiVideoOrientationLandscapeRight;
+		}
+		else if ([action.title isEqualToString:@"Landscape Left"])
+		{
+			if (_onAirSettings)
+				_onAirSettings.advanced.videoOrientation = ZixiVideoOrientationLandscapeLeft;
+			
+			if (_onair)
+				_onair.videoOrientation = ZixiVideoOrientationLandscapeLeft;
 		}
 		else if ([action.title isEqualToString:@"Portrait"])
 		{
 			if (_onAirSettings)
-				_onAirSettings.advanced.verticalOrientation = YES;
-
+				_onAirSettings.advanced.videoOrientation = ZixiVideoOrientationPortrait;
+			
 			if (_onair)
-				_onair.verticalOrientation = YES;
+				_onair.videoOrientation = ZixiVideoOrientationPortrait;
+		}
+		else if ([action.title isEqualToString:@"Portrait Upside Down"])
+		{
+			if (_onAirSettings)
+				_onAirSettings.advanced.videoOrientation = ZixiVideoOrientationPortraitUpsideDown;
+			
+			if (_onair)
+				_onair.videoOrientation = ZixiVideoOrientationPortraitUpsideDown;
 		}
 
 		// force orientation
-		UIInterfaceOrientation o = _onAirSettings.advanced.verticalOrientation ? UIInterfaceOrientationPortrait : UIInterfaceOrientationLandscapeRight;
+		UIInterfaceOrientation o;
+		switch (_onAirSettings.advanced.videoOrientation)
+		{
+			case ZixiVideoOrientationPortrait:
+				o = UIInterfaceOrientationPortrait;
+				break;
+			case ZixiVideoOrientationPortraitUpsideDown:
+				o = UIInterfaceOrientationPortraitUpsideDown;
+				break;
+			case ZixiVideoOrientationLandscapeLeft:
+				o = UIInterfaceOrientationLandscapeLeft;
+				break;
+			default:
+			case ZixiVideoOrientationLandscapeRight:
+				o = UIInterfaceOrientationLandscapeRight;
+				break;
+		}
 		[UIDevice.currentDevice setValue:@(o) forKey:@"orientation"];
 
 		[UIViewController attemptRotationToDeviceOrientation];
@@ -264,9 +390,16 @@
 	UIAlertAction* portraitAction = [UIAlertAction actionWithTitle:@"Portrait" style:UIAlertActionStyleDefault handler:handler];
 	[orientationAC addAction:portraitAction];
 
-	UIAlertAction* landscapeAction = [UIAlertAction actionWithTitle:@"Landscape" style:UIAlertActionStyleDefault handler:handler];
-	[orientationAC addAction:landscapeAction];
+	UIAlertAction* portraitUpsideDownAction = [UIAlertAction actionWithTitle:@"Portrait Upside Down" style:UIAlertActionStyleDefault handler:handler];
+	[orientationAC addAction:portraitUpsideDownAction];
 
+	UIAlertAction* landscapeRightAction = [UIAlertAction actionWithTitle:@"Landscape Right" style:UIAlertActionStyleDefault handler:handler];
+	[orientationAC addAction:landscapeRightAction];
+
+	UIAlertAction* landscapeLeftAction = [UIAlertAction actionWithTitle:@"Landscape Left" style:UIAlertActionStyleDefault handler:handler];
+	[orientationAC addAction:landscapeLeftAction];
+
+	
 	UIAlertAction* cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction* action){
 		
 	}];
